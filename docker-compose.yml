@@ -8,15 +8,15 @@ services:
     volumes:
       - ./mongodb:/data/db
 
-  deno-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: deno-ts-app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - mongodb
+  # deno-app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: deno-ts-app
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - mongodb
 
 volumes:
   mongodb:
