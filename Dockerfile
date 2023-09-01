@@ -6,4 +6,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["deno", "run", "--allow-net", "main.ts"]
+CMD ["deno", "run", "-A", "main.ts"]

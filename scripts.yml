@@ -1,0 +1,4 @@
+scripts:
+  start:
+    cmd: "deno run main.ts"
+    desc: "run my main.ts file"
