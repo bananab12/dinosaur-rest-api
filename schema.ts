@@ -14,5 +14,5 @@ dinosaurSchema
   .path("species")
   .required(true, "Dinosaur species cannot be blank.");
 
-// Export model.
+// Export model
 export default model("Dinosaur", dinosaurSchema);

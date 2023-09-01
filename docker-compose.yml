@@ -1,11 +1,22 @@
+version: "3"
 services:
-  db:
-    container_name: mongo-db
-    image: mongo:4.4-focal
-    volumes:
-      - ./mongodb:/data/db
+  mongodb:
+    image: mongo:4.4.24
+    container_name: mongodb-container
     ports:
       - "27017:27017"
+    volumes:
+      - ./mongodb:/data/db
+
+  deno-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: deno-ts-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
 
 volumes:
   mongodb:
