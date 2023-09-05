@@ -7,15 +7,15 @@ WORKDIR /app
 # Copia los archivos de tu aplicación al directorio de trabajo
 COPY . /app
 
-# Instala las dependencias de Deno (mod.ts)
-RUN deno cache main.ts
+# Instala las dependencias de Deno
+RUN deno cache deno.json
 
-# Instala Mongoose utilizando npm
-RUN deno install -A --unstable -n mongoose npm:mongoose@^6.7
+# ENV MONGODB_URI=mongodb://localhost:27017/deno
+ENV MONGODB_URI=mongodb://127.0.0.1:27017/deno
 
 # Exponer el puerto en el que se ejecuta la aplicación Deno
 EXPOSE 3000
 
 # Ejecuta tu aplicación Deno con la conexión a MongoDB
-CMD ["deno", "run", "--allow-net", "--allow-env", "--unstable", "--allow-read", "main.ts"]
+CMD ["deno", "run", "-A", "main.ts"]
 
