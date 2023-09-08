@@ -12,7 +12,7 @@ services:
       - deno-app
 
   deno-app:
-    image: deno/app
+    image: bananab12/app:demo
     container_name: deno-ts-app
     restart: always
     build:
