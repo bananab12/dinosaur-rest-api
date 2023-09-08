@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "express": "npm:express@^4.17",
+    "mongoose": "npm:mongoose@^6.7"
+  }
+}
