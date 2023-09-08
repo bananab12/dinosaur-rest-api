@@ -18,7 +18,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: sh -c "sleep 10; deno ru -A main.ts"
+    # command: sh -c "sleep 10; deno ru -A main.ts"
     ports:
       - "3000:3000"
     environment:
@@ -29,18 +29,20 @@ services:
       - mongodb
 
   mongodb:
-    image: mongo:4.4.24
+    # image: mongo:4.4.24-focal
+    image: mongo:6.0.9-jammy
     container_name: mongodb-container
     ports:
       - "27017:27017"
     volumes:
-      - ./mongodb:/data/db
+      # - ./mongodb:/data/db
+      - ./ops:/docker-entrypoint-initdb.d
     networks:
       - demo_network
 
-volumes:
-  mongodb:
-    external: false
+# volumes:
+#   mongodb:
+#     external: false
 
 networks:
   demo_network:
